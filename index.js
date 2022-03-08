@@ -2,11 +2,13 @@
      axios is one of the most common libraries used in its place.  It is also sometimes
     used in web apps in place of fetch() as it has a lot more options */
 const axios = require('axios').default;
+
 /*  The Math module is also not available in Node.js, so lodash is a layup to use here for
     its ceil() function, which rounds a number up to help us do integer division
     Lodash is very common to use in modern JS apps to do things like compare arrays,
     reduce Objects and more */ 
 const { ceil } = require('lodash');
+
 //  The final requirement is the native FileSystem module to write our results to disk
 const fs = require('fs');
 
@@ -15,7 +17,8 @@ const BASE_URL = 'https://api.fisenko.net/v1';
     50 is the max results returnable from the external API */ 
 const OFFSET = 50;
 
-/*  Lines 21-25 are the "body" of this app.  An initial call is made to the /statistics
+
+/*  Lines 25-29 are the "body" of this app.  An initial call is made to the /statistics
     endpoint to retrieve the number of authors currently in the database, then 
     getAuthorsByPage is called with arguments of *page 0*, *maxPages* and an empty array 
     where we'll build up our list of all Authors */
@@ -25,6 +28,7 @@ axios.get(`${BASE_URL}/statistics/en`)
         getAuthorsByPage(0, maxPages, []);
     });
 
+    
 function getAuthorsByPage(currentPage, lastPage, acc) {
     /*  This is the "escape valve" for our recursive function
         When we've reached the last page, we'll stop recursively calling
