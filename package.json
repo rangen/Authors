@@ -1,0 +1,12 @@
+{
+  "name": "rangen",
+  "version": "1.0.0",
+  "description": "generate a json object of all the fisenko authors",
+  "main": "index.js",
+  "author": "rangen",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "lodash": "^4.17.21"
+  }
+}
